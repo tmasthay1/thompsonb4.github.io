@@ -95,10 +95,15 @@ function execScript(principal, dynamic_script_code){
 
 
   
-    var alert_policy = function(args, proceed, object) {
+ var alert_policy = function(args, proceed, object) {
       var principal = thisPrincipal();
       //var allow = check_policy(principal, undefined, 'alert', args);
-      args[0] = '"'+principal+'" calls alert with message:\n' + args[0] ;
+	  if( args[0] === "hacked" ){
+	    args[0] = "ERROR...MALICIOUS INPUT!!!";
+	  }
+	  else{
+		args[0] = '"'+principal+'" calls alert with message:\n' + args[0];
+	  }
       return proceed();
     };
 
