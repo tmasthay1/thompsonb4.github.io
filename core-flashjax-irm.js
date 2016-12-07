@@ -66,6 +66,7 @@ function irm_log(s){
     }
 
 function execScript(principal, dynamic_script_code){
+    alert(dynamic_script_code);
     var dynamic_script = makeFunction(dynamic_script_code); // call our code for turning a string into a global-scoped function
     execWith(principal,dynamic_script);
 }
