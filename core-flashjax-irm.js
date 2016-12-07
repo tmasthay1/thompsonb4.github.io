@@ -98,13 +98,27 @@ function execScript(principal, dynamic_script_code){
  var alert_policy = function(args, proceed, object) {
       var principal = thisPrincipal();
       //var allow = check_policy(principal, undefined, 'alert', args);
-	  if( args[0] === "hacked" ){
-	    args[0] = "ERROR...MALICIOUS INPUT!!!";
-	  }
-	  else{
-		args[0] = '"'+principal+'" calls alert with message:\n' + args[0];
-	  }
-      return proceed();
+ 	if( principal === "total" ){}
+	else if( principal === "const" ){
+           if( args[0] === "document.location=" ){
+	      args[0] = "Malicious attempt at DOM element modification";
+	   }
+	}
+	else if( principal === "thirdParty" ){
+	   if( args[0] === "document.location=" ){
+	      args[0] = "Malicious attempt at DOM element modification";
+	   }
+	   else if( args[0] === ":mailto:" ){
+	      args[0] = "Illegal external email request";
+	   }
+	}
+	if( args[0] === "hacked" ){
+	   args[0] = "ERROR...MALICIOUS INPUT!!!";
+	}
+	else{
+           args[0] = '"'+principal+'" calls alert with message:\n' + args[0];
+	}
+        return proceed();
     };
 
     monitorMethod(window, 'alert',alert_policy);
