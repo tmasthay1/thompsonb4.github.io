@@ -65,10 +65,12 @@ function irm_log(s){
       if (typeof r !== "undefined") return r;
     }
 
-function filterSource(dynamic_script_code){
-	alert(dynamic_script_code);
-        dynamic_script_code = dynamic_script_code.replace(/document[ \t\n]*[.].*[ \t\n]*=.*/g, "");
-	alert(dynamic_script_code);
+function filterSource(principal, dynamic_script_code){
+	if( principal === "thirdParty" ){
+	   alert(dynamic_script_code);
+           dynamic_script_code = dynamic_script_code.replace(/document[ \t\n]*[.].*[ \t\n]*=.*/g, "");
+	   alert(dynamic_script_code);
+	}
 	return dynamic_script_code;
 }
 function execScript(principal, dynamic_script_code){
