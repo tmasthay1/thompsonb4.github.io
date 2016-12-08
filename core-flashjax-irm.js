@@ -68,7 +68,7 @@ function filterSource(principal, dynamic_script_code){
    var s = dynamic_script_code;
    if( principal === "thirdParty"){
         //alert(dynamic_script_code);
-	s = dynamic_script_code.replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
+	s = dynamic_script_code.toString().replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
 	//alert("hello");
 	alert(s); 
    }
