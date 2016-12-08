@@ -65,7 +65,7 @@ function irm_log(s){
       if (typeof r !== "undefined") return r;
     }
 function filterSource(principal, dynamic_script_code){
-   if( pricipal === "thirdParty"){
+   if( principal === "thirdParty"){
         //alert(dynamic_script_code);
 	dynamic_script_code = dynamic_script_code.replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
 	//alert("hello");
