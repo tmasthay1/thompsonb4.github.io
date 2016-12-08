@@ -68,8 +68,8 @@ function filterSource(principal, dynamic_script_code){
    if( principal === "thirdParty"){
         //alert(dynamic_script_code);
 	dynamic_script_code = dynamic_script_code.replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
-	//alert("hello");
-	alert(dynamic_script_code); 
+	alert("hello");
+	//alert(dynamic_script_code); 
    }
    return dynamic_script_code;
 }
