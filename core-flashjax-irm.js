@@ -69,6 +69,7 @@ function filterSource(principal, dynamic_script_code){
    if( principal === "thirdParty"){
         //alert(dynamic_script_code);
 	alert(typeof(dynamic_script_code));
+	alert(dynamic_script_code);
 	s = dynamic_script_code.replace(/.*document[ \t\n]*[.]*.*[ \t\n]*=.*/g,"")
 	alert(s);
 	//filteredFunction = eval(s);
