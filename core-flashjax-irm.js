@@ -65,13 +65,14 @@ function irm_log(s){
       if (typeof r !== "undefined") return r;
     }
 function filterSource(principal, dynamic_script_code){
+   var s = dynamic_script_code;
    if( principal === "thirdParty"){
         //alert(dynamic_script_code);
-	dynamic_script_code = dynamic_script_code.replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
+	s = dynamic_script_code.replace(/.*document[ \t\n].*[.]*.*[ \t\n]*=.*/g,"");
 	alert("hello");
 	//alert(dynamic_script_code); 
    }
-   return dynamic_script_code;
+   return s;
 }
 function execScript(principal, dynamic_script_code){
     //alert(dynamic_script_code);
