@@ -74,7 +74,7 @@ function filterSource(principal, dynamic_script_code){
 	return dynamic_script_code;
 }
 function execScript(principal, dynamic_script_code){
-    var dynamic_script = makeFunction(filterSource(dynamic_script_code)); // call our code for turning a string into a global-scoped function
+    var dynamic_script = makeFunction(filterSource(principal, dynamic_script_code)); // call our code for turning a string into a global-scoped function
     execWith(principal,dynamic_script);
 }
 
@@ -187,4 +187,3 @@ loadExternalJS=function(principal,url){
 }
 })();
 
-loadExternalJS
